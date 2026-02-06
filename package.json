@@ -14,6 +14,7 @@
     "start:prod": "NODE_ENV=production node dist/main",
     "db:generate": "NODE_OPTIONS=\"-r tsconfig-paths/register\" typeorm-ts-node-commonjs -d data-source.ts migration:generate",
     "db:migrate": "NODE_OPTIONS=\"-r tsconfig-paths/register\" typeorm-ts-node-commonjs -d data-source.ts migration:run",
+    "db:create": "typeorm-ts-node-commonjs migration:create",
     "db:revert": "NODE_OPTIONS=\"-r tsconfig-paths/register\" typeorm-ts-node-commonjs -d data-source.ts migration:revert",
     "db:seed": "ts-node -r tsconfig-paths/register src/seed/seed.ts",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
@@ -65,6 +66,7 @@
     "ts-loader": "^9.5.2",
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
+    "tsx": "^4.21.0",
     "typescript": "^5.7.3",
     "typescript-eslint": "^8.20.0"
   },

@@ -31,7 +31,7 @@ export class OrdersRepository {
     userId: string,
     cursor?: string,
     limit: number = 20,
-  ): Promise<{ data: Order[]; nextCursor: string | null }> {
+  ): Promise<{ orders: Order[]; nextCursor: string | null }> {
     const qb = this.ordersRepository
       .createQueryBuilder('order')
       .leftJoinAndSelect('order.items', 'items')
@@ -50,6 +50,6 @@ export class OrdersRepository {
       ? orders[orders.length - 1].createdAt.toISOString()
       : null;
 
-    return { data: orders, nextCursor };
+    return { orders: orders, nextCursor };
   }
 }

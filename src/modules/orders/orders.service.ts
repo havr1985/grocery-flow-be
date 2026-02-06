@@ -156,4 +156,21 @@ export class OrdersService {
       await qr.release();
     }
   }
+
+  async findOne(id: string): Promise<Order> {
+    const order = await this.ordersRepository.findById(id);
+    if (!order) {
+      throw new NotFoundException('Order', id);
+    }
+    return order;
+  }
+
+  async findByUser(
+    userId: string,
+    cursor?: string,
+    limit: number = 20,
+  ): Promise<{ orders: Order[]; nextCursor: string | null }> {
+    await this.usersService.findOne(userId);
+    return this.ordersRepository.findByUser(userId, cursor, limit);
+  }
 }

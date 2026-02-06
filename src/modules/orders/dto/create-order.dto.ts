@@ -15,7 +15,7 @@ import { Type } from 'class-transformer';
 export class CreateOrderItemDto {
   @ApiProperty({
     description: 'Product Id',
-    example: '550e8400-e29b-41d4-a716-446655440000',
+    example: '3d7e7d48-5444-403b-957a-5f39752e8ec6',
   })
   @IsNotEmpty()
   @IsUUID()
@@ -31,7 +31,7 @@ export class CreateOrderItemDto {
 export class CreateOrderDto {
   @ApiProperty({
     description: 'User Id',
-    example: '550e8400-e29b-41d4-a716-446655440000',
+    example: '91972ffc-c0b6-4996-94a0-d5a1bc442f47',
   })
   @IsNotEmpty()
   @IsUUID()
